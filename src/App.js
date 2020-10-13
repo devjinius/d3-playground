@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './App.css';
-import { select } from 'd3';
+import { line, select, curveBasis, curveCatmullRom } from 'd3';
 
 function App() {
 	const [data, setData] = useState([25, 30, 45, 20, 100, 60]);
@@ -8,20 +8,24 @@ function App() {
 	const svgRef = useRef();
 	useEffect(() => {
 		const svg = select(svgRef.current);
+		const drawLine = line()
+			.x((v, i) => i * 50)
+			.y(v => 170 - v)
+			.curve(curveCatmullRom);
+
 		svg
-			.selectAll('circle')
-			.data(data)
-			.join('circle')
-			.attr('r', v => v)
-			.attr('cx', v => v * 2)
-			.attr('cy', v => v * 2)
+			.selectAll('path')
+			.data([data])
+			.join('path')
+			.attr('d', v => drawLine(v))
+			.attr('fill', 'none')
 			.attr('stroke', 'red');
 	}, [data]);
 	return <>
 		<svg ref={svgRef}></svg>
 		<br/>
 		<button onClick={() => setData(data.map(value => value + 5))}>update</button>
-		<button onClick={() => setData(data.filter(value => value > 40))}>filter</button>
+		<button onClick={() => setData(data.filter(value => value < 40))}>filter</button>
 	</>;
 }
 
