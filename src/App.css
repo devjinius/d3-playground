@@ -1,3 +1,5 @@
 svg {
     background-color: #FF3;
+    overflow: visible;
+    margin: 30px;
 }
