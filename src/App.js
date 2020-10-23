@@ -79,11 +79,10 @@ function App() {
 			return newValue > 120 ? 120 : newValue;
 		}))}>update</button>
 		<button onClick={() => setData(data.filter(value => value < 40))}>filter</button>
-		{/* <button onClick={() => {
+		<button onClick={() => {
 			const newValue = getRandomData();
-			data.push(newValue);
-			setData(data);
-		}}>add</button> */}
+			setData([...data, newValue]);
+		}}>add</button>
 	</>;
 }
 
