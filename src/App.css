@@ -1,8 +1,11 @@
+#bar-chart-wrapper {
+    margin-bottom: 30px;
+}
+
 #bar-chart {
     background-color: #FF3;
     overflow: visible;
     display: block;
-    margin: 30px;
     width: 100%;
 }
 
@@ -11,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    padding: 0 50px;
+    padding: 50px;
 }
 
 button {
