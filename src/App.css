@@ -1,5 +1,21 @@
-svg {
+#bar-chart {
     background-color: #FF3;
     overflow: visible;
+    display: block;
     margin: 30px;
+    width: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 0 50px;
+}
+
+button {
+    width: 100px;
+    border: 1px solid black;
+    margin: 0 auto 5px;
 }
